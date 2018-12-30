@@ -17,9 +17,12 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @PostConstruct
     public void init() {
-        // this data would typically be retrieved from a database
         this.accountDetails = new TreeMap<>();
-        this.accountDetails.put("ted", "ted");
+        this.accountDetails.put("admin", "admin");
+        this.accountDetails.put("user", "password");
+        this.accountDetails.put("luffy", "mugiwara");
+        this.accountDetails.put("ben", "kenobi");
+        this.accountDetails.put("boomer", "cylon8");
     }
 
     @Override
@@ -37,4 +40,9 @@ public class CustomUserDetailsService implements UserDetailsService {
                 true,
                 Arrays.asList(new SimpleGrantedAuthority("USER")));
     }
+    
+    public Map<String, String> getAccountDetails() {
+        return this.accountDetails;
+    }
+    
 }

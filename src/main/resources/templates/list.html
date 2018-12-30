@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>User info</title>
+    </head>
+    <body>
+        <h1>Secret list</h1>
+        
+        <h2> Admins </h2>
+        <ul>
+            <li th:each="entry : ${userDetails}">
+                <span th:text="${entry}">user</span>
+            </li>
+        </ul>
+
+        <h2> Subscribed </h2>
+        <ul>
+            <li th:each="entry : ${showers}">
+                Name: <span th:text="${entry.name}">name</span>
+                Address: <span th:text="${entry.address}">address</span>
+            </li>
+        </ul>
+    </body>
+</html>

@@ -6,6 +6,12 @@
     <body>
 
         <h1>You have been signed up to the event!</h1>
+                    
+        <h1>Leave us a feedback to try to win a special pass for the event!</h1>
+        <form action="#" th:action="@{/form}" method="POST">
+              <textarea name="feedback" rows="10" cols="30">We really hope you enjoy our service!</textarea>
+            <p><input type="submit" value="Submit"/></p>
+        </form>
   
         <br></br>
         <a href="/form" th:ref="@{/form}"> HOME </a>

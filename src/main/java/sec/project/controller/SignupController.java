@@ -2,9 +2,11 @@ package sec.project.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import sec.project.config.CustomUserDetailsService;
 import sec.project.domain.Signup;
 import sec.project.repository.SignupRepository;
 
@@ -14,6 +16,9 @@ public class SignupController {
     @Autowired
     private SignupRepository signupRepository;
 
+    @Autowired
+    public CustomUserDetailsService users;
+    
     @RequestMapping("*")
     public String defaultMapping() {
         return "redirect:/form";
@@ -25,15 +30,32 @@ public class SignupController {
     }
 
     @RequestMapping(value = "/form", method = RequestMethod.POST)
-    public String submitForm(@RequestParam String name, @RequestParam String address) {
+    public String submitForm(Model model, @RequestParam String name, @RequestParam String address) {
         signupRepository.save(new Signup(name, address));
-        System.out.println(signupRepository.count());
-        
-        for(int i=0; i<signupRepository.count(); i++)
-            System.out.println(signupRepository.findAll().get(i).getName());
-        
+        model.addAttribute("name", name);
         return "done";
     }
-
-
+    
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String loadLogin() {
+        return "login";
+    }
+    
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String submitLogin(Model model, @RequestParam String uname, @RequestParam String psw) {
+         return "redirect:/list";
+    }
+    
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public String view(Model model) {
+        model.addAttribute("showers", signupRepository.findAll());
+        model.addAttribute("userDetails", users.getAccountDetails());
+        return "list";
+    }
+    
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
+    public String deleteUsers(){
+        signupRepository.deleteAll();
+        return "/delete";
+    }
 }

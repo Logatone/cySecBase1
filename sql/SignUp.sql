@@ -1,9 +1,0 @@
-INSERT INTO Signup (name, address, seat) VALUES ('Luffy', 'Captain', 1);
-INSERT INTO Signup (name, address, seat) VALUES ('Zoro', 'Swordsman', 2);
-INSERT INTO Signup (name, address, seat) VALUES ('Nami', 'Navigator', 3);
-INSERT INTO Signup (name, address, seat) VALUES ('Usopp', 'Sniper', 4);
-INSERT INTO Signup (name, address, seat) VALUES ('Sanji', 'Cook', 5);
-INSERT INTO Signup (name, address, seat) VALUES ('Chopper', 'Doctor', 6);
-INSERT INTO Signup (name, address, seat) VALUES ('Robin', 'Archaeologist', 7);
-INSERT INTO Signup (name, address, seat) VALUES ('Franky', 'Shipwright', 8);
-INSERT INTO Signup (name, address, seat) VALUES ('Brook', 'Musician', 9);
