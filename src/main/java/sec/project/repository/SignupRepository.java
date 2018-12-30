@@ -1,3 +1,4 @@
+//MP Log@1
 package sec.project.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;

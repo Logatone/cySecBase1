@@ -1,3 +1,4 @@
+//MP Log@1
 package sec.project.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 
             //FIXME
             csrf().disable()
-                
+            
             .authorizeRequests().anyRequest().permitAll();
     }
 

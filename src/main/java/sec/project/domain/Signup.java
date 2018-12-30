@@ -1,3 +1,4 @@
+//MP Log@1
 package sec.project.domain;
 
 import javax.persistence.Entity;

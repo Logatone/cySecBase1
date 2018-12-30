@@ -1,3 +1,4 @@
+//MP Log@1
 package sec.project.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,8 +43,10 @@ public class SignupController {
     }
     
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String submitLogin(Model model, @RequestParam String uname, @RequestParam String psw) {
-         return "redirect:/list";
+    public String submitLogin(Model model, @RequestParam String uname, @RequestParam String pword) {
+        if(signupRepository.findAll().contains(uname))
+            return "redirect:/list";
+        else return "/login";
     }
     
     @RequestMapping(value = "/list", method = RequestMethod.GET)
