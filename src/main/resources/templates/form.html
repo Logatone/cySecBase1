@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Form</title>
+    </head>
+    <body>
+
+        <h1>Subscribe to the event!</h1>
+
+        <form action="#" th:action="@{/form}" method="POST">
+            <p><label for="name">Name</label>: <input type="text" name="name" id="name"/></p>
+            <p><label for="address">Email</label>: <input type="text" name="address" id="address"/></p>
+            <p><input type="submit" value="Submit"/></p>
+        </form>
+        
+        <br></br>
+        
+
+        <p><a href="/feedback" th:ref="@{/feedback}"> Leave a feedback! </a></p>
+        <p><a href="/delete" th:ref="@{/delete}"> Manage the subscriptions </a></p>
+
+    
+    </body>
+</html>

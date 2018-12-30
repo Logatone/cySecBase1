@@ -1,0 +1,5 @@
+CREATE TABLE Signup (
+	name VARCHAR,
+	address VARCHAR,
+	seat INTEGER PRIMARY KEY
+);

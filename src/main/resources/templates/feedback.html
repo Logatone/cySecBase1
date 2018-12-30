@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Feedback</title>
+    </head>
+    <body>
+            
+        <h1>Leave a feedback here!</h1>
+        <form action="#" th:action="@{/form}" method="POST">
+              <textarea name="feedback" rows="10" cols="30">We really hope you enjoy our service!</textarea>
+            <p><input type="submit" value="Submit"/></p>
+        </form>
+        
+        <br></br>
+        <a href="/form" th:ref="@{/form}"> HOME </a>
+
+    </body>
+</html>
