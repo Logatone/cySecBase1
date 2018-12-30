@@ -20,7 +20,6 @@ public class CustomUserDetailsService implements UserDetailsService {
     public void init() {
         this.accountDetails = new TreeMap<>();
         this.accountDetails.put("admin", "admin");
-        this.accountDetails.put("user", "password");
         this.accountDetails.put("luffy", "mugiwara");
         this.accountDetails.put("ben", "kenobi");
         this.accountDetails.put("boomer", "cylon8");

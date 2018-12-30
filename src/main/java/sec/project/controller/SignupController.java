@@ -18,7 +18,7 @@ public class SignupController {
     private SignupRepository signupRepository;
 
     @Autowired
-    public CustomUserDetailsService users;
+    public CustomUserDetailsService admins;
     
     @RequestMapping("*")
     public String defaultMapping() {
@@ -29,7 +29,7 @@ public class SignupController {
     public String loadForm() {
         return "form";
     }
-
+    
     @RequestMapping(value = "/form", method = RequestMethod.POST)
     public String submitForm(Model model, @RequestParam String name, @RequestParam String address) {
         signupRepository.save(new Signup(name, address));
@@ -37,22 +37,30 @@ public class SignupController {
         return "done";
     }
     
+    @RequestMapping(value = "/done", method = RequestMethod.GET)
+    public String loadDone() {
+        return "done";
+    }
+    
+    @RequestMapping(value = "/done", method = RequestMethod.POST)
+    public String submitDone(@RequestParam String feedback) {
+        return "redirect:/form";
+    }
+    
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loadLogin() {
         return "login";
-    }
+    }    
     
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String submitLogin(Model model, @RequestParam String uname, @RequestParam String pword) {
-        if(signupRepository.findAll().contains(uname))
-            return "redirect:/list";
-        else return "/login";
+    public String submitLogin(@RequestParam String uname, @RequestParam String pword) {
+        return "redirect:/list";
     }
     
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String view(Model model) {
         model.addAttribute("showers", signupRepository.findAll());
-        model.addAttribute("userDetails", users.getAccountDetails());
+        model.addAttribute("userDetails", admins.getAccountDetails());
         return "list";
     }
     
